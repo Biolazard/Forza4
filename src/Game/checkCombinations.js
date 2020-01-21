@@ -49,7 +49,7 @@ function regexWinner(matrix, col, row) {
   ];
 
   function isValidIndexMatrix(row, col) {
-    if (row < matrix.length && col < matrix[0].length && row >= 0 && col >= 0) {
+    if (row >= 0 && row < matrix.length && col >= 0 && col < matrix[0].length) {
       return "" + matrix[row][col];
     } else {
       return "z";
