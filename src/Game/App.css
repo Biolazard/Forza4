@@ -1,0 +1,102 @@
+.App {
+  background-color: red;
+}
+
+body {
+  background-color: aquamarine;
+}
+
+.board {
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  appearance: none;
+}
+
+/* .board:hover {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  background-color: gold;
+  right: 294px;
+} */
+
+.board:focus {
+  outline: none;
+}
+
+.upside-board {
+  padding: 50px;
+  display: flex;
+}
+
+.container-board {
+  margin: 50px;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.align-row {
+  display: flex;
+}
+
+.container-move {
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.yellow {
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  background-color: gold;
+}
+
+.red {
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  background-color: red;
+}
+
+.red:focus {
+  outline: none;
+}
+
+.yellow:focus {
+  outline: none;
+}
+
+.board-info-alignment-center {
+  display: flex;
+  align-items: center;
+}
+
+.border-color-name-player {
+  text-shadow: 0 0 0.9px black;
+}
+
+.alignment-UI {
+  display: -moz-inline-grid;
+  text-align: center;
+}
+
+.button-restart {
+  margin-left: 120px;
+  padding: 10px;
+  font-weight: bold;
+  width: 60px;
+  border-radius: 10px;
+  background-color: lightgray;
+  user-select: none;
+}
+
+.button-restart:active {
+  background-color: gray;
+}
