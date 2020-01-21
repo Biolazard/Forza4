@@ -53,6 +53,7 @@ function regexWinner(matrix, col, row) {
       return "" + matrix[row][col];
     } else {
       return "z";
+      
     }
   }
 }
