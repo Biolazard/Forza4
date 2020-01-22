@@ -1,13 +1,14 @@
 import React from "react";
+
 export function Cell(props) {
   const { column, value } = props;
+
   const classNames = require("classnames");
   const classToAssign = classNames({
     board: value === null,
     red: value === "R",
     yellow: value === "Y"
   });
-
   return (
     <div
       className="container-move"

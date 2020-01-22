@@ -1,4 +1,5 @@
 import React from "react";
+
 export function InfoPlayer(props) {
   let aboutCurrentPlayer;
   let currentPlayer = props.currentPlayer;
