@@ -1,21 +1,20 @@
 import React from "react";
+import cx from "classnames";
 
 export function InfoPlayer(props) {
-  let aboutCurrentPlayer;
-  let currentPlayer = props.currentPlayer;
-  if (!props.theWinner) {
-    aboutCurrentPlayer = currentPlayer + " is your turn!";
-  } else {
-    currentPlayer = currentPlayer === "Yellow" ? "Red" : "Yellow";
-    aboutCurrentPlayer = currentPlayer + " won!";
-  }
+  const [current, next] = props.players;
   return (
     <div>
       <h1
-        style={{ color: currentPlayer.toLowerCase() }}
-        className={"border-color-name-player"}
+        style={{
+          color: props.theWinner ? current.toLowerCase() : next.toLowerCase()
+        }}
+        className={cx("border-color-name-player", {
+          [current.toLowerCase()]: props.theWinner && false,
+          [next.toLowerCase()]: !props.theWinner && false
+        })}
       >
-        {aboutCurrentPlayer}
+        {props.theWinner ? `${current} won` : `${next} is your turn`}
       </h1>
     </div>
   );

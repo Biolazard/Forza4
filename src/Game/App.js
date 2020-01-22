@@ -15,9 +15,12 @@ class Forza4 extends React.Component {
       isRed: true,
       winner: undefined
     };
+
+    // this.restartGame = this.restartGame.bind(this);
+    this.doDropDisc = this.doDropDisc.bind(this);
   }
 
-  doInsertColor(col) {
+  doDropDisc(col) {
     if (this.state.winner) {
       return;
     }
@@ -25,10 +28,12 @@ class Forza4 extends React.Component {
     const player = this.state.isRed ? "R" : "Y";
     for (let i = 0; i < matrix.length; i++) {
       if (matrix[i][col] === null) {
-        matrix[i][col] = player;
-        const winner = checkCombinations(matrix, col, i, player);
+        const newmatrix = matrix.map((r, ri) =>
+          ri !== i ? r : r.map((c, ci) => (ci !== col ? c : player))
+        );
+        const winner = checkCombinations(newmatrix, col, i, player);
         this.setState({
-          matrix,
+          matrix: newmatrix,
           isRed: !this.state.isRed,
           winner
         });
@@ -37,7 +42,7 @@ class Forza4 extends React.Component {
     }
   }
 
-  restartGame() {
+  restartGame = () => {
     this.setState({
       matrix: new Array(this.props.row)
         .fill(null)
@@ -45,22 +50,19 @@ class Forza4 extends React.Component {
       isRed: true,
       winner: undefined
     });
-  }
+  };
 
   render() {
     return (
       <div className="alignment-UI">
         <div className="board-info-alignment-center">
-          <Board
-            onClick={column => this.doInsertColor(column)}
-            matrix={this.state.matrix}
-          />
+          <Board handleClick={this.doDropDisc} matrix={this.state.matrix} />
           <InfoPlayer
-            currentPlayer={this.state.isRed === true ? "Red" : "Yellow"}
+            players={this.state.isRed ? ["Yellow", "Red"] : ["Red", "Yellow"]}
             theWinner={this.state.winner}
           />
         </div>
-        <RestartMatch restartGame={() => this.restartGame()} />
+        <RestartMatch restartGame={this.restartGame} />
       </div>
     );
   }

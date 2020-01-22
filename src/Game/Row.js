@@ -2,15 +2,16 @@ import React from "react";
 import { Cell } from "./Cell";
 
 export function Row(props) {
-  const { row } = props;
+  const { row, rowIndex } = props;
   return (
     <div className="align-row">
-      {props.matrix[0].map((_, columnIndex) => (
+      {row.map((col, columnIndex) => (
         <Cell
-          key={`${row}x${columnIndex}`}
+          key={`${rowIndex}x${columnIndex}`}
+          row={rowIndex}
           column={columnIndex}
-          value={props.matrix[row][columnIndex]}
-          onClick={props.onClick}
+          value={col}
+          onClick={props.handleClick}
         />
       ))}
     </div>
