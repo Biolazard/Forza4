@@ -15,7 +15,7 @@ export function Cell(props) {
         })}
         onClick={() => props.onClick(column)}
       >
-        {`${row}x${column}`}
+        {/* {`${row}x${column}`} */}
       </button>
     </div>
   );
